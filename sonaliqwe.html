@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- The title you want for GitHub / browser tab -->
+  <title>An Apology For My Wife 🤎</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Dancing+Script:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ----- WARMER, TOASTIER COLOURS (no music) ----- */
+    :root {
+      --velvet:     #30180a;     /* deep base */
+      --cocoa:      #4f2b13;     /* rich brown */
+      --cinnamon:   #7b4a2a;     /* warm medium */
+      --honey:      #d9a766;     /* soft gold */
+      --cream:      #fff1df;     /* page base, warmer than before */
+      --cream-lines:#e9dac4;     /* ruled lines */
+      --blush:      #e6b8a2;     /* warm peachy note */
+      --ember:      #b4582c;     /* gentle rust */
+      --gold-leaf:  #c9944e;     /* for accents */
+      --shadow:     rgba(40, 18, 5, 0.6);
+      --ink-warm:   #2f1a0d;     /* soft black‑brown */
+    }
+
+    body {
+      min-height: 100vh;
+      background: #281507;  /* darker outer, makes diary glow */
+      background-image: 
+        radial-gradient(circle at 20% 30%, #613c1e55 0%, transparent 45%),
+        radial-gradient(circle at 80% 70%, #7b4a2a33 0%, transparent 55%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 32px 16px 70px;
+      font-family: 'Lora', Georgia, serif;
+      position: relative;
+    }
+
+    /* ---- floating hearts & warm symbols (new theme) ---- */
+    .warm-drift {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      font-size: 1.3rem;
+      opacity: 0.15;
+      animation: driftWarm 16s linear infinite;
+      user-select: none;
+      color: #f3cca3;
+    }
+    @keyframes driftWarm {
+      0% { transform: translateY(100vh) rotate(0deg) scale(0.8); opacity: 0.1; }
+      20% { opacity: 0.3; }
+      80% { opacity: 0.2; }
+      100% { transform: translateY(-15vh) rotate(300deg) scale(1.2); opacity: 0; }
+    }
+
+    /* ----- diary book ----- */
+    .diary {
+      position: relative;
+      z-index: 15;
+      width: min(670px, 96vw);
+      animation: diaryGlide 1s cubic-bezier(0.2, 0.9, 0.3, 1) both;
+    }
+    @keyframes diaryGlide {
+      0% { opacity: 0; transform: translateY(-35px) rotate(-1deg); }
+      100% { opacity: 1; transform: translateY(0) rotate(0); }
+    }
+
+    /* ----- WARMER COVER (brown with ochre notes) ----- */
+    .cover {
+      background: radial-gradient(circle at 10% 30%, #7a4d27, #3d1f0c 90%);
+      border-radius: 6px 20px 20px 6px;
+      padding: 0;
+      box-shadow: 
+        -8px 0 0 #1f0e03,
+        -14px 8px 40px rgba(0,0,0,0.7),
+        6px 10px 40px rgba(0,0,0,0.5),
+        inset 2px 0 12px rgba(255, 190, 110, 0.15);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.4s ease, box-shadow 0.4s;
+    }
+    .cover:hover {
+      transform: rotate(1deg) translateY(-5px);
+      box-shadow: -8px 0 0 #1f0e03, -18px 12px 55px #000000aa, 8px 12px 50px #00000099,
+                  inset 2px 0 12px #ffbe6e33;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        repeating-linear-gradient(45deg, #00000015 0px, #00000015 2px, transparent 2px, transparent 6px);
+      pointer-events: none;
+    }
+
+    .spine {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 22px;
+      background: linear-gradient(to right, #1c0b02, #492d13);
+      border-right: 1px solid #b58b4b33;
+    }
+
+    .cover-inner {
+      padding: 50px 40px 50px 55px;
+      min-height: 290px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      position: relative;
+    }
+
+    .cover-border {
+      position: absolute;
+      inset: 14px 14px 14px 30px;
+      border: 1.5px solid rgba(218, 165, 80, 0.3);
+      border-radius: 4px;
+    }
+    .cover-border::after {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border: 1px solid rgba(218, 165, 80, 0.15);
+    }
+
+    .cover-emoji {
+      font-size: 2.8rem;
+      filter: drop-shadow(0 4px 10px #00000066);
+      animation: warmGlow 2.6s infinite alternate ease-in-out;
+    }
+    @keyframes warmGlow {
+      0% { transform: scale(1) rotate(-2deg); filter: drop-shadow(0 4px 8px #ffb26680); }
+      100% { transform: scale(1.1) rotate(3deg); filter: drop-shadow(0 8px 18px #d49b5c); }
+    }
+
+    .cover-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.8rem, 5vw, 2.4rem);
+      font-weight: 700;
+      color: #ffddb0;
+      text-align: center;
+      text-shadow: 0 2px 15px #2f1405, 0 0 40px #eab46e;
+      line-height: 1.2;
+    }
+
+    .cover-sub {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.75rem;
+      color: #dbb77a;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .open-hint {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: #f7d9a4;
+      animation: softBreathe 2.4s infinite;
+      margin-top: 12px;
+      opacity: 0.9;
+    }
+    @keyframes softBreathe {
+      0% { opacity: 0.5; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(-4px); }
+    }
+
+    /* ----- PAGES (warmer cream) ----- */
+    .pages {
+      display: none;
+      animation: pagesRise 0.7s ease both;
+    }
+    .pages.open { display: block; }
+
+    @keyframes pagesRise {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .page {
+      background: var(--cream);
+      position: relative;
+      padding: 52px 48px 50px 64px;
+      border-radius: 0 0 12px 0;
+      box-shadow: 8px 12px 45px #1a0d03cc, inset 40px 0 60px -40px #b8875a33;
+      overflow: hidden;
+    }
+
+    /* warmer ruled lines */
+    .page::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(transparent, transparent 30px, #dbbc8c 30px, #dbbc8c 31px);
+      background-position: 0 60px;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    /* left margin - warmer red */
+    .page::after {
+      content: '';
+      position: absolute;
+      left: 46px; top: 0; bottom: 0;
+      width: 1.8px;
+      background: #b1624b80;
+      pointer-events: none;
+    }
+
+    .page-curl {
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 42px; height: 42px;
+      background: linear-gradient(225deg, #eedac2 40%, transparent 50%);
+      filter: drop-shadow(-2px -2px 5px #62422933);
+    }
+
+    /* stickers warmer */
+    .sticker {
+      position: absolute;
+      font-size: 1.7rem;
+      opacity: 0;
+      transform: rotate(-18deg) scale(0.4);
+      transition: opacity 0.45s, transform 0.6s cubic-bezier(0.34,1.56,0.64,1);
+      pointer-events: none;
+      filter: drop-shadow(2px 4px 8px #896b4d66);
+    }
+    .sticker.show { opacity: 0.9; transform: rotate(-5deg) scale(1); }
+    .sticker.s1 { top: 20px; left: 60px; }
+    .sticker.s2 { top: 10px; right: 20px; transform: rotate(15deg) scale(0.4); }
+    .sticker.s2.show { transform: rotate(8deg) scale(1); }
+
+    /* doodles (warmer) */
+    .doodle {
+      position: absolute;
+      font-size: 1.4rem;
+      opacity: 0.25;
+      pointer-events: none;
+      animation: waft 5s infinite alternate ease-in-out;
+      color: #a8592b;
+    }
+    @keyframes waft {
+      0% { transform: translate(0, 0) rotate(-5deg); }
+      100% { transform: translate(8px, -6px) rotate(8deg); }
+    }
+    .doodle.d1 { top: 30px; right: 30px; }
+    .doodle.d2 { top: 80px; right: 15px; font-size: 1rem; }
+    .doodle.d3 { bottom: 120px; right: 30px; }
+    .doodle.d4 { bottom: 70px; left: 20px; }
+
+    .page-date {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.7rem;
+      color: #9b673d;
+      letter-spacing: 0.1em;
+      margin-bottom: 28px;
+      opacity: 0.8;
+    }
+
+    .letter-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.7rem, 4.8vw, 2.2rem);
+      font-weight: 700;
+      color: #572f16;
+      text-align: center;
+      margin-bottom: 28px;
+      text-shadow: 0 1px 3px #e6b27e66;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .divider span { flex: 1; height: 1px; background: linear-gradient(to right, transparent, #ac6f3f, transparent); opacity: 0.4; }
+    .divider em { color: #b16d3b; font-size: 1rem; font-style: normal; }
+
+    .letter-body {
+      font-family: 'Lora', Georgia, serif;
+      font-size: clamp(0.96rem, 2.2vw, 1.05rem);
+      color: #2b1a0c;
+      line-height: 2.05;   /* matches ruled lines */
+      position: relative;
+      z-index: 2;
+    }
+    .letter-body p {
+      margin-bottom: 1.1rem;
+      animation: gentleAppear 0.5s ease backwards;
+    }
+    .letter-body p:nth-child(1) { animation-delay: 0.2s; }
+    .letter-body p:nth-child(2) { animation-delay: 0.3s; }
+    .letter-body p:nth-child(3) { animation-delay: 0.4s; }
+    .letter-body p:nth-child(4) { animation-delay: 0.5s; }
+    .letter-body p:nth-child(5) { animation-delay: 0.6s; }
+    .letter-body p:nth-child(6) { animation-delay: 0.7s; }
+
+    .love-note {
+      font-style: italic;
+      color: #a04928;
+      font-size: 1.08em;
+      background: #fbead877;
+      padding: 2px 6px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    @keyframes gentleAppear {
+      0% { opacity: 0; transform: translateY(6px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .signature {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      color: #633b1c;
+      text-align: right;
+      margin-top: 20px;
+      opacity: 0.9;
+    }
+
+    /* ----- FORGIVE SECTION (warmer, no audio) ----- */
+    .forgive-section {
+      text-align: center;
+      margin-top: 40px;
+      animation: fadeIn 0.6s 0.8s both;
+    }
+
+    .forgive-label {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: #85572e;
+      opacity: 0.6;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .forgive-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 44px;
+      background: linear-gradient(145deg, #834f28, #542f16);
+      color: #ffeac2;
+      border: none;
+      border-radius: 60px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      font-weight: 600;
+      box-shadow: 0 8px 30px #3b1f0b, 0 0 0 2px #dba36955, inset 0 2px 8px #ffd7a1;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.4s;
+    }
+    .forgive-btn:hover {
+      transform: translateY(-5px) scale(1.04);
+      box-shadow: 0 16px 40px #46240e, 0 0 0 4px #f0b77e99, inset 0 2px 12px #ffeac2;
+    }
+    .forgive-btn:active { transform: scale(0.97); }
+
+    .forgiven-msg {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      animation: popWarm 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    @keyframes popWarm {
+      0% { opacity: 0; transform: scale(0.4); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    .forgiven-emoji { font-size: 3.8rem; filter: drop-shadow(0 8px 12px #d8975a); }
+    .forgiven-text {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #572f16;
+      line-height: 1.2;
+    }
+    .forgiven-sub {
+      font-family: 'Lora', italic;
+      font-size: 1rem;
+      color: #9b592e;
+      opacity: 0.9;
+    }
+
+    /* back button */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 42px;
+      padding: 9px 28px;
+      background: transparent;
+      color: #85572e;
+      border: 1.5px solid #c29466;
+      border-radius: 50px;
+      font-family: 'Special Elite', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+      transition: 0.25s;
+      background: #fae7d2aa;
+    }
+    .back-btn:hover {
+      background: #ffe2c1;
+      transform: translateX(-4px);
+      border-color: #ab6d40;
+    }
+
+    /* confetti warm colours */
+    .confetti {
+      position: fixed;
+      width: 9px; height: 9px;
+      border-radius: 2px;
+      pointer-events: none;
+      z-index: 9999;
+      animation: confettiFall linear forwards;
+    }
+    @keyframes confettiFall {
+      0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(800deg); opacity: 0; }
+    }
+
+    .sparkle-el {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      font-size: 1.3rem;
+      animation: sparkleAnim 0.9s ease-out forwards;
+    }
+    @keyframes sparkleAnim {
+      0% { transform: scale(1) rotate(0); opacity: 1; }
+      100% { transform: scale(0.2) translateY(-120px) rotate(200deg); opacity: 0; }
+    }
+
+    /* mobile tweaks */
+    @media (max-width: 500px) {
+      .page { padding: 40px 25px 40px 42px; }
+      .page::after { left: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- warm drifting background symbols (instead of particles) -->
+<div id="warmDriftContainer"></div>
+
+<main class="diary" id="diary">
+  <!-- cover -->
+  <div class="cover" id="cover">
+    <div class="spine"></div>
+    <div class="cover-border"></div>
+    <div class="cover-inner">
+      <div class="cover-emoji">🤎📖</div>
+      <div class="cover-title">Dear Sonali,<br>A lil note for you 🤎</div>
+      <div class="cover-sub">Private · Personal · With love</div>
+      <div class="cover-date" id="coverDate"></div>
+      <div class="open-hint">✦ tap to open ✦</div>
+    </div>
+  </div>
+
+  <!-- inside pages -->
+  <div class="pages" id="pages">
+    <div class="page">
+      <!-- doodles (warmer) -->
+      <div class="doodle d1">🍂</div>
+      <div class="doodle d2">🌰</div>
+      <div class="doodle d3">🤎</div>
+      <div class="doodle d4">☕</div>
+
+      <!-- stickers appear later -->
+      <div class="sticker s1" id="s1">🌸</div>
+      <div class="sticker s2" id="s2">💌</div>
+
+      <div class="page-curl"></div>
+
+      <div class="page-date" id="pageDate"></div>
+
+      <h1 class="letter-title">An Apology For lil Cute Sonali 🤎</h1>
+
+      <div class="divider"><span></span><em>❦</em><span></span></div>
+
+      <div class="letter-body">
+        <p>Helllooo my lil cute Sonaliii,</p>
+        <p>I am really sorry for sleeping early yesterday. I didn't actually mean to sleep yesterday. I did have my alarm, and the first two alarms were before 11:30, and I did wake up at that time, but I still didn't receive any messages. Then I set my alarm at 11:30, but sadly I slept and didn't actually hear the alarm.</p>
+        <p>I'm sorry, I didn't know I would sleep this badly and unconsciously.</p>
+        <p>I'm really sorry for making you wait… sorry, my love. I hope this doesn't repeat from my side again. I'm really sorry, darling… sorry. 🤎</p>
+        <p>And not gonna lie, I do think I'm not enough for you. I'm not saying it in a dramatic way… yeah, I do think you are right.</p>
+        <p class="love-note">I'm really sorry, it's completely my fault. Sorry for ruining your mood, darlingh. I love you so much. 🌹</p>
+      </div>
+
+      <div class="signature">— Yours, always 🤎</div>
+
+      <!-- ********** AUDIO SECTION FULLY REMOVED ********** -->
+
+      <!-- forgive me button (no music left) -->
+      <div class="forgive-section" id="forgiveSection">
+        <span class="forgive-label">✦ your turn ✦</span>
+        <button class="forgive-btn" id="forgiveBtn">
+          <span>Forgive me? 🥺</span>
+          <span>🤎</span>
+        </button>
+      </div>
+
+      <!-- forgiven message -->
+      <div class="forgiven-msg" id="forgivenMsg">
+        <div class="forgiven-emoji">🥰🤎</div>
+        <div class="forgiven-text">Yayyyy she forgave me!!! 🎉</div>
+        <div class="forgiven-sub">I promise I'll do better, my darling 🌹</div>
+      </div>
+
+      <!-- close diary button -->
+      <div style="text-align: center;">
+        <button class="back-btn" id="backBtn">← close diary</button>
+      </div>
+    </div> <!-- /page -->
+  </div> <!-- /pages -->
+</main>
+
+<script>
+  (function() {
+    // --- date stamps ---
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+    document.getElementById('coverDate').textContent = dateStr;
+    document.getElementById('pageDate').textContent = '✦ ' + dateStr + ' ✦';
+
+    // --- warm drifting symbols (replaces old particles) ---
+    const warmContainer = document.getElementById('warmDriftContainer');
+    const warmIcons = ['🤎', '🍂', '🌰', '🕯️', '☕', '🌸', '🍁', '🌹', '🧦', '☕', '📖', '✨'];
+    for (let i = 0; i < 16; i++) {
+      const el = document.createElement('div');
+      el.className = 'warm-drift';
+      el.textContent = warmIcons[Math.floor(Math.random() * warmIcons.length)];
+      const dur = 12 + Math.random() * 18;
+      const left = Math.random() * 98;
+      const size = 0.9 + Math.random() * 1.2;
+      const delay = -(Math.random() * dur);
+      el.style.left = left + '%';
+      el.style.fontSize = size + 'rem';
+      el.style.animationDuration = dur + 's';
+      el.style.animationDelay = delay + 's';
+      warmContainer.appendChild(el);
+    }
+
+    // --- sparkles on click (warmer) ---
+    const sparkleEmojis = ['🤎', '✨', '🌸', '🍂', '🌰', '💌'];
+    document.addEventListener('click', function(e) {
+      for (let i = 0; i < 3; i++) {
+        const sp = document.createElement('div');
+        sp.className = 'sparkle-el';
+        sp.textContent = sparkleEmojis[Math.floor(Math.random() * sparkleEmojis.length)];
+        sp.style.left = (e.clientX + (Math.random() - 0.5) * 50) + 'px';
+        sp.style.top = (e.clientY + (Math.random() - 0.5) * 30) + 'px';
+        document.body.appendChild(sp);
+        sp.addEventListener('animationend', () => sp.remove());
+      }
+    });
+
+    // --- open/close diary ---
+    const cover = document.getElementById('cover');
+    const pages = document.getElementById('pages');
+    const backBtn = document.getElementById('backBtn');
+
+    function openDiary() {
+      cover.style.display = 'none';
+      pages.classList.add('open');
+      // show stickers after a beat
+      setTimeout(() => {
+        document.getElementById('s1').classList.add('show');
+        document.getElementById('s2').classList.add('show');
+      }, 400);
+    }
+
+    function closeDiary() {
+      pages.classList.remove('open');
+      cover.style.display = '';
+      // reset forgive UI
+      document.getElementById('forgiveSection').style.display = '';
+      document.getElementById('forgivenMsg').style.display = 'none';
+    }
+
+    cover.addEventListener('click', openDiary);
+    backBtn.addEventListener('click', (e) => { e.stopPropagation(); closeDiary(); });
+
+    // --- forgive button with confetti (warmer palette) ---
+    const forgiveBtn = document.getElementById('forgiveBtn');
+    const forgiveSection = document.getElementById('forgiveSection');
+    const forgivenMsg = document.getElementById('forgivenMsg');
+
+    const confettiColors = ['#d9a766', '#b4582c', '#c47c3c', '#f3cca3', '#ab6d40', '#e6b8a2', '#a04928'];
+
+    function launchConfettiFromClick(clientX, clientY) {
+      for (let i = 0; i < 55; i++) {
+        const conf = document.createElement('div');
+        conf.className = 'confetti';
+        conf.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+        conf.style.left = (clientX + (Math.random() - 0.5) * 320) + 'px';
+        conf.style.top = clientY + 'px';
+        conf.style.width = (6 + Math.random() * 10) + 'px';
+        conf.style.height = (6 + Math.random() * 10) + 'px';
+        conf.style.borderRadius = Math.random() > 0.5 ? '50%' : '3px';
+        conf.style.animationDuration = (1.2 + Math.random() * 1.8) + 's';
+        conf.style.animationDelay = (Math.random() * 0.4) + 's';
+        document.body.appendChild(conf);
+        conf.addEventListener('animationend', () => conf.remove());
+      }
+    }
+
+    forgiveBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      launchConfettiFromClick(e.clientX, e.clientY);
+      forgiveSection.style.display = 'none';
+      forgivenMsg.style.display = 'flex';
+
+      // extra tiny sparkles around
+      for (let j = 0; j < 6; j++) {
+        setTimeout(() => {
+          const sp2 = document.createElement('div');
+          sp2.className = 'sparkle-el';
+          sp2.textContent = ['🎉','🥰','🤎','💖','🌹','✨'][j % 6];
+          sp2.style.left = (30 + Math.random() * 40) + '%';
+          sp2.style.top = (40 + Math.random() * 20) + '%';
+          document.body.appendChild(sp2);
+          sp2.addEventListener('animationend', () => sp2.remove());
+        }, j * 70);
+      }
+    });
+
+    // (optional) pre-show today's date also on cover
+  })();
+</script>
+
+<!-- NO AUDIO — completely removed -->
+</body>
+</html>
